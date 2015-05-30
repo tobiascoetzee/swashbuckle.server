@@ -1,0 +1,5 @@
+MoviesApi.v12.suo
+MoviesApi/bin/
+MoviesApi/obj/
+packages/
+*.csproj.user
