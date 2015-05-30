@@ -58,6 +58,9 @@ namespace MoviesApi.Controllers
             }
         };
 
+        /// <summary>
+        /// Returns all movies
+        /// </summary>
         [Route("")]
         [ResponseType(typeof(List<Movie>))]
         public IHttpActionResult Get()
@@ -65,6 +68,11 @@ namespace MoviesApi.Controllers
             return Ok(movies);
         }
 
+        /// <summary>
+        /// Returns a single movie for an id
+        /// </summary>
+        /// <remarks>You have to supply a valid id.</remarks>
+        /// <response code="404">No movie with the given id exists.</response>
         [Route("{id}", Name = "GetMovieById")]
         [ResponseType(typeof(Movie))]
         public IHttpActionResult Get(int id)
@@ -79,6 +87,11 @@ namespace MoviesApi.Controllers
             return Ok(movie);
         }
 
+        /// <summary>
+        /// Create a new movie.
+        /// </summary>
+        /// <remarks>Cannot reuse an existing id.</remarks>
+        /// <response code="405">Cannot add a new movie with an existing id.</response>
         [Route("")]
         [ResponseType(typeof(Movie))]
         public IHttpActionResult Post([FromBody] Movie movie)
